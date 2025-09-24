@@ -1,0 +1,14 @@
+services:
+  backend:
+    build: ./backend
+    image: 2fa-react-fastapi-backend:latest
+    container_name: 2fa-react-fastapi-backend
+  
+  frontend:
+    build: ./frontend
+    image: 2fa-react-fastapi-frontend:latest
+    container_name: 2fa-react-fastapi-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
