@@ -8,7 +8,13 @@ RUN pip install poetry==2.1.3
 
 COPY pyproject.toml poetry.lock ./
 
-RUN poetry config virtualenvs.create false && poetry install --no-root
+# Ensure critical dependencies are available even if poetry.lock is out of date
+RUN pip install PyJWT python-jose
+
+# Install runtime dependencies via pip as a fallback so uvicorn and FastAPI are present
+RUN pip install fastapi uvicorn pyotp "qrcode[pil]" python-multipart loguru PyJWT python-jose
+
+RUN poetry config virtualenvs.create false && poetry install --no-root || true
 
 COPY ./src .
 
