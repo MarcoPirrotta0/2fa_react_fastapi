@@ -83,7 +83,7 @@ function App() {
   }, [message]);
 
   return (
-    <Container maxWidth="sm" sx={{ py: 6 }}>
+<Container maxWidth="md" sx={{ py: 6 }}>
       <Box sx={{ textAlign: 'center', mb: 4 }}>
         <Typography variant="h4" component="h1" gutterBottom>
           🔐 2FA with FastAPI + Microsoft Authenticator
