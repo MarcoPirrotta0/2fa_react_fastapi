@@ -17,12 +17,15 @@ function App() {
   const [qrImage, setQrImage] = useState<string | null>(null);
   const [token, setToken] = useState('');
   const [step, setStep] = useState('register');
+  const [userRecognized, setUserRecognized] = useState<boolean | null>(null);
   const [message, setMessage] = useState('');
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [loading, setLoading] = useState(false);
 
+
   const handleRegister = async () => {
     setLoading(true);
+    setUserRecognized(null);
     try {
       const response = await axios.post('/api/register',        
         { username: username },
@@ -32,6 +35,7 @@ function App() {
       const imageUrl = URL.createObjectURL(response.data);
       setQrImage(imageUrl);
       setStep('verify');
+      setUserRecognized(false);
       setMessage('Registration successful — scan the QR code');
     } catch (err) {
       // The error response is a blob, so we need to convert it to JSON
@@ -42,6 +46,8 @@ function App() {
           const errorJson = JSON.parse(errorText);
           if (errorJson.detail=="User already exists") {
             setStep('verify');
+            setUserRecognized(true);
+            setMessage('User already registered — enter the 6-digit code from your authenticator app:');
             return;
           }
           setMessage(errorJson.detail || 'Registration failed');
@@ -89,7 +95,7 @@ function App() {
           <TextField
             placeholder="Enter username"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => { setUsername(e.target.value); setUserRecognized(null); }}
             size="small"
           />
             <Button variant="contained" onClick={handleRegister} disabled={loading}>
@@ -100,8 +106,16 @@ function App() {
 
       {step === 'verify' && (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
-          <Typography>📲 Scan this QR code with Microsoft Authenticator:</Typography>
-          {qrImage && <Avatar src={qrImage} alt="QR Code" sx={{ width: 160, height: 160 }} variant="square" />}
+          {qrImage ? (
+            <>
+              <Typography>📲 Scan this QR code with Microsoft Authenticator:</Typography>
+              <Avatar src={qrImage} alt="QR Code" sx={{ width: 160, height: 160 }} variant="square" />
+            </>
+          ) : userRecognized ? (
+            <Typography>🔑 User already registered — enter the 6-digit code from your authenticator app:</Typography>
+          ) : (
+            <Typography>ℹ️ No QR available — proceed to enter your 6-digit code:</Typography>
+          )}
 
           <Box sx={{ display: 'flex', gap: 2, mt: 1 }}>
             <TextField
