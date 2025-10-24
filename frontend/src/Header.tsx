@@ -13,7 +13,7 @@ const Header: React.FC = () => {
       <Toolbar>
 
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Login Code Generator Example
+          LOGIN CODE GENERATOR EXAMPLE
         </Typography>
 
 

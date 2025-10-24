@@ -83,15 +83,15 @@ function App() {
   }, [message]);
 
   return (
-<Container maxWidth="md" sx={{ py: 6 }}>
-      <Box sx={{ textAlign: 'center', mb: 4 }}>
+    <Container maxWidth="md" sx={{ py: 6 }}>
+      <Box id="top" sx={{ textAlign: 'center', mb: 4 }}>
         <Typography variant="h4" component="h1" gutterBottom>
           🔐 2FA with FastAPI + Microsoft Authenticator
         </Typography>
       </Box>
 
       {step === 'register' && (
-        <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', alignItems: 'center' }}>
+        <Box id="register" sx={{ display: 'flex', gap: 2, justifyContent: 'center', alignItems: 'center' }}>
           <TextField
             placeholder="Enter username"
             value={username}
@@ -105,7 +105,7 @@ function App() {
       )}
 
       {step === 'verify' && (
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+        <Box id="verify" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
           {qrImage ? (
             <>
               <Typography>📲 Scan this QR code with Microsoft Authenticator:</Typography>
@@ -137,6 +137,7 @@ function App() {
           {message}
         </Alert>
       </Snackbar>
+      <Box id="footer" sx={{ height: 80 }} />
     </Container>
   );
 }
