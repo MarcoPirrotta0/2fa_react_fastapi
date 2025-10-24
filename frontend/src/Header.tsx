@@ -17,7 +17,7 @@ const Header: React.FC = () => {
         </Typography>
 
 
-<Tooltip title="Open on GitHub">
+<Tooltip title="Original Repository Link">
   <IconButton
     aria-label="github"
     component="a"
