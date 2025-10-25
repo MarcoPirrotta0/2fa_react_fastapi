@@ -8,6 +8,8 @@ import LoreBlur from './LoreBlurQRCode.tsx';
 import LoreBlurAuth from './LoreBlurAuth.tsx';
 import MinorTitle from './minortitle.tsx';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Footer from './Footer.tsx';
+import { Box } from '@mui/material';
 
 const theme = createTheme({
   typography: {
@@ -18,12 +20,12 @@ const theme = createTheme({
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
-      <Header/>
       <Sidebar />
-      <LoreBlur />
-      <LoreBlurAuth />
-      <MinorTitle />
-      <App />
+
+      <Box id="top"><Header /></Box>
+      <Box id="history"><LoreBlur /><LoreBlurAuth /></Box>
+      <Box id="register"><MinorTitle /><App /></Box>
+      <Box id="footer"><Footer /></Box>
     </ThemeProvider>
   </StrictMode>,
 )
