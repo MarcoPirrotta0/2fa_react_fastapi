@@ -8,10 +8,10 @@ const Footer: React.FC = () => {
 <Box
   component="footer"
   sx={{
-    width: "100vw",        // full viewport width
+    width: "100vw",      
     position: "relative",
     left: "50%",
-    marginLeft: "-50vw",   // offsets half the viewport width to center
+    marginLeft: "-50vw",   
     pt: 20,
     pb: 1,
     mt: 8,
@@ -23,7 +23,6 @@ const Footer: React.FC = () => {
   }}
 >
 
-      {/* Main footer content */}
       <Container maxWidth="lg" sx={{ pb: 1 }}>
         <Grid
           container
@@ -32,7 +31,7 @@ const Footer: React.FC = () => {
           alignItems="flex-start"
           direction={{ xs: "column", md: "row" }}
         >
-          {/* Left Section — Description */}
+  
           <Grid item xs={12} md={7}>
             <Typography
               variant="h5"
@@ -72,7 +71,7 @@ const Footer: React.FC = () => {
             </Typography>
           </Grid>
 
-          {/* Right Section — Resources */}
+ 
           <Grid
             item
             xs={12}
@@ -138,7 +137,7 @@ const Footer: React.FC = () => {
         </Grid>
       </Container>
 
-      {/* Bottom bar */}
+
       <Box
         sx={{
           py: 2,
@@ -153,7 +152,7 @@ const Footer: React.FC = () => {
             color: theme.palette.getContrastText(theme.palette.primary.dark || theme.palette.primary.main),
           }}
         >
-          © {new Date().getFullYear()} Aether Nexus — All rights reserved.
+          © {new Date().getFullYear()} Authenticator App — All rights reserved.
         </Typography>
       </Box>
     </Box>

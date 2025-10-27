@@ -31,14 +31,14 @@ function App() {
         { username: username },
         { responseType: 'blob'}
       );
-      // The response is already a blob when responseType is set to 'blob'
+
       const imageUrl = URL.createObjectURL(response.data);
       setQrImage(imageUrl);
       setStep('verify');
       setUserRecognized(false);
       setMessage('Registration successful — scan the QR code');
     } catch (err) {
-      // The error response is a blob, so we need to convert it to JSON
+
       if ((err as any).response && (err as any).response.data instanceof Blob) {
         const errorBlob = (err as any).response.data as Blob;
         const errorText = await errorBlob.text();

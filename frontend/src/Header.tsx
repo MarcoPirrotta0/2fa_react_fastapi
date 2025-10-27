@@ -25,20 +25,19 @@ const Header: React.FC = () => {
     marginLeft: "-50vw",
     marginRight: "-50vw",
 
-    // Fade from primary color to white, more space at the bottom
+
     background: `linear-gradient(180deg, 
       ${theme.palette.primary.main} 50%, 
       #ffffff 100%)`,
 
     color: theme.palette.getContrastText(theme.palette.primary.main),
-    pb: 7,           // increase bottom padding for more fade space
-    pt: 2,            // optional top padding
-    minHeight: 350,   // ensures header is tall enough
+    pb: 7,          
+    pt: 2,           
+    minHeight: 350,  
   }}
 >
 
 
-      {/* Transparent AppBar */}
       <AppBar
         position="static"
         elevation={0}
@@ -70,7 +69,7 @@ const Header: React.FC = () => {
   sx={{
     color: "white",
     "&:hover": {
-      color: theme.palette.primary.light, // change to blue
+      color: theme.palette.primary.light, 
     },
   }}
 >
@@ -81,7 +80,6 @@ const Header: React.FC = () => {
         </Toolbar>
       </AppBar>
 
-      {/* Subtitle and body below the toolbar */}
       <Container maxWidth="md" sx={{ mt: 2, textAlign: "center" }}>
         <Typography
           variant="h4"

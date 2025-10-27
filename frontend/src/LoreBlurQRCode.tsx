@@ -36,7 +36,7 @@ const LoreBlur: React.FC = () => {
           justifyContent="center"
           direction={{ xs: 'column', md: 'row' }}
         >
-          {/* QR Code on the LEFT */}
+
           <Grid
             item
             xs={12}
@@ -65,7 +65,7 @@ const LoreBlur: React.FC = () => {
             />
           </Grid>
 
-          {/* Text content on the RIGHT */}
+
           <Grid item xs={12} md={8}>
             <Typography
               variant="h5"

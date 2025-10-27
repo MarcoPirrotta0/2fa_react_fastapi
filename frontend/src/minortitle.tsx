@@ -8,7 +8,7 @@ const MinorTitle: React.FC = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        py: 4, // smaller vertical padding
+        py: 4, 
         px: 2,
       }}
     >

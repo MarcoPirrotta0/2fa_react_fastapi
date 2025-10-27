@@ -9,12 +9,12 @@ import {
   useTheme,
 } from '@mui/material';
 
-// import the image from the frontend folder so Vite bundles/serves it correctly
+
 import authLogo from '../faviconsecurity.png';
 
 const LoreBlurAuth: React.FC = () => {
   const infoUrl = 'https://www.microsoft.com/en-us/security/business/security-101/what-is-two-factor-authentication-2fa';
-  const authLogoSrc = authLogo; // use local file bundled by Vite
+  const authLogoSrc = authLogo; 
   const theme = useTheme();
 
   return (
@@ -37,7 +37,6 @@ const LoreBlurAuth: React.FC = () => {
           justifyContent="center"
           direction={{ xs: 'column', md: 'row' }}
         >
-          {/* Logo/Image on the LEFT */}
           <Grid
             item
             xs={12}
@@ -66,7 +65,6 @@ const LoreBlurAuth: React.FC = () => {
             />
           </Grid>
 
-          {/* Text content on the RIGHT */}
           <Grid item xs={12} md={8}>
             <Typography
               variant="h5"

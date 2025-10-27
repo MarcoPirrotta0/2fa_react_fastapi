@@ -11,6 +11,8 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Footer from './Footer.tsx';
 import { Box } from '@mui/material';
 
+
+// Create a custom theme with Oswald font
 const theme = createTheme({
   typography: {
     fontFamily: `'Oswald', system-ui, Avenir, Helvetica, Arial, sans-serif`,
